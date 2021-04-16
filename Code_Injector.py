@@ -5,7 +5,7 @@ import re
 import subprocess
 
 
-def set_load(packet, load):  # Function that you give it a packet and a new load and it changes its load with the new one
+def set_load(packet, load):
     packet[scapy.Raw].load = load
     del packet[scapy.IP].len
     del packet[scapy.IP].chksum

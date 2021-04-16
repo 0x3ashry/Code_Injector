@@ -1,5 +1,6 @@
 # Code_Injector
 Python Program to inject a Java Script code in HTML requested pages during MITM attack
+
 You can inject a BeEF script to hook the target browser to your framework or even execute a lot of commands on it, it is only limited with your Java Script Knowledge 
 
 ## Requirements

